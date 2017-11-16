@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="58dp">
+
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/iv_empty"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_highlight_white_36dp"
+        android:tint="@color/primaryMedium"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

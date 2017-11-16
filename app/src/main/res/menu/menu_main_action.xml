@@ -1,0 +1,52 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.alibaba.sdk.android.photostore_samples.view.MainActivity">
+    <!--<item-->
+        <!--android:id="@+id/action_add"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="@string/action_add"-->
+        <!--app:showAsAction="ifRoom" />-->
+    <item
+        android:id="@+id/action_download"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_download_normal"
+        android:title="@string/action_download"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_rename"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_rename_normal"
+        android:title="@string/action_rename"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_setcover"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_set_cover_normal"
+        android:title="@string/action_setcover"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_setme"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_set_me_normal"
+        android:title="@string/action_setme"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_move"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_move_white_24dp"
+        android:title="@string/action_move"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_merge"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_merge_normal"
+        android:title="@string/action_merge"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_delete"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_delete_normal"
+        android:title="@string/action_delete"
+        app:showAsAction="ifRoom" />
+</menu>

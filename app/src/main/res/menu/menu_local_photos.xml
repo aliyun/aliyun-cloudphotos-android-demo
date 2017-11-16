@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.alibaba.sdk.android.photostore_samples.view.MainActivity">
+    <item
+        android:id="@+id/menu_local_photo_select_all"
+        android:orderInCategory="100"
+        android:title="@string/action_select_all"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_local_photo_select_none"
+        android:orderInCategory="100"
+        android:title="@string/action_select_none"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_local_photo_upload"
+        android:orderInCategory="100"
+        android:title="@string/action_upload"
+        app:showAsAction="ifRoom" />
+</menu>

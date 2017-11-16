@@ -1,0 +1,97 @@
+<resources>
+
+    <string name="app_name">CloudPhoto</string>
+
+    <string name="action_settings">设置</string>
+    <string name="action_select">选择</string>
+    <string name="action_create">创建</string>
+    <string name="action_add">添加</string>
+    <string name="action_delete">删除</string>
+    <string name="action_reactive">恢复</string>
+    <string name="action_download">下载</string>
+    <string name="action_rename">重命名</string>
+    <string name="action_setcover">设置封面</string>
+    <string name="action_setme">设置"我"</string>
+    <string name="action_move">移动</string>
+    <string name="action_merge">合并</string>
+    <string name="action_info">信息</string>
+    <string name="action_upload">上传</string>
+    <string name="action_select_all">全选</string>
+    <string name="action_select_none">全不选</string>
+    <string name="action_create_album">新建相册</string>
+
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+
+    <string name="title_activity_preview">照片预览</string>
+    <string name="title_activity_local_photos">相机照片</string>
+    <string name="title_activity_cloud_photos">云端照片</string>
+    <string name="title_activity_move_albums">云端相册</string>
+    <string name="title_activity_move_faces">人脸</string>
+    <string name="title_activity_inactive_photos">回收站</string>
+    <string name="title_activity_login">登录</string>
+
+    <string name="login">登录</string>
+
+    <string name="tab_assistant">智能助理</string>
+    <string name="tab_momentphotos">时光</string>
+    <string name="tab_photos">照片</string>
+    <string name="tab_albums">相册</string>
+    <string name="search_bar_search">搜索 \"杭州\"</string>
+
+    <string name="intent_action_select_image">选择照片</string>
+
+    <string name="backup_title">备份和上传</string>
+    <string name="backup">备份</string>
+    <string name="backup_main">备份相机照片</string>
+    <string name="backup_hint">点击进行备份</string>
+    <string name="backup_no_more">没有需要备份的照片</string>
+    <string name="backup_to_upload">%1d 张照片待备份</string>
+    <string name="backup_in_progress">正在备份照片</string>
+    <string name="backup_stop">停止</string>
+    <string name="backup_manual">选择相机照片上传</string>
+
+    <string name="cat_faces">面孔</string>
+    <string name="cat_places">地点</string>
+    <string name="cat_things">事物</string>
+    <string name="cat_collages">拼贴</string>
+    <string name="cat_memories">回忆</string>
+    <string name="cat_tags">标签</string>
+
+    <string name="settings_switch_account">账号</string>
+    <string name="settings_account_default">默认账号</string>
+    <string name="settings_account_coco">MS COCO</string>
+    <string name="settings_account_logout">登出</string>
+
+    <string name="smart_album">回忆</string>
+
+    <!-- Strings related to login -->
+    <string name="login_title">欢迎体验阿里云智能相册</string>
+    <string name="login_hint">该App是阿里云智能云相册体验版，便于您快速了解智能相册服务。\n\n通过预置演示账户或手机号登录均可上传照片并使用相册服务。 \n\n注意：体验版对已上传数据将不定期清除</string>
+    <string name="login_presentation">进入演示账户</string>
+    <string name="login_user">使用手机号验证码登录试用账户</string>
+    <string name="login_ak">使用AK登录试用账户</string>
+    <string name="login_yunqi">进入云栖大会账号</string>
+
+    <string name="login_prompt_phone">手机号</string>
+    <string name="login_prompt_code">验证码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_phone">无效的手机号</string>
+    <string name="error_invalid_code">无效的验证码</string>
+    <string name="error_incorrect_code">验证码不正确</string>
+    <string name="error_field_required">不能为空</string>
+    <string name="login_send_sms">获取验证码</string>
+    <string name="login_timer">%1$2d s</string>
+    <string name="login_failed">登录错误, AK不正确</string>
+    <string name="login_invalid">账号登录失效, 请重新登录</string>
+
+    <string name="send_sms_success">发送成功，请注意查收</string>
+    <string name="send_sms_failed">发送失败，请重试</string>
+
+    <string name="error_network">网络错误</string>
+
+    <string name="about">智能云相册</string>
+    <string name="hint">点击左上角的汉堡图标或从屏幕左边缘向右滑动打开侧边栏\n\n在侧边栏中您可以选择手机相册中的照进行片上传或备份整个相册</string>
+
+</resources>

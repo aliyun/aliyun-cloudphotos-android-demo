@@ -1,0 +1,98 @@
+<resources>
+
+    <string name="app_name">CloudPhoto</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_select">Select</string>
+    <string name="action_create">Create</string>
+    <string name="action_add">Create</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_reactive">Restore</string>
+    <string name="action_download">Download</string>
+    <string name="action_rename">Rename</string>
+    <string name="action_setcover">Set Cover</string>
+    <string name="action_setme">Set Me</string>
+    <string name="action_move">Move</string>
+    <string name="action_merge">Merge</string>
+    <string name="action_info">Info</string>
+    <string name="action_upload">Upload</string>
+    <string name="action_select_all">All</string>
+    <string name="action_select_none">None</string>
+
+    <string name="action_create_album">CreateAlbum</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="title_activity_preview">PreviewActivity</string>
+    <string name="title_activity_local_photos">Camera Photos</string>
+    <string name="title_activity_cloud_photos">Cloud Photos</string>
+    <string name="title_activity_inactive_photos">Recycling Station</string>
+    <string name="title_activity_move_albums">Cloud Albums</string>
+    <string name="title_activity_move_faces">Faces</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <string name="login">Login</string>
+
+    <string name="tab_assistant">Assistant</string>
+    <string name="tab_momentphotos">MomentPhotos</string>
+    <string name="tab_photos">Photos</string>
+    <string name="tab_albums">Albums</string>
+    <string name="search_bar_search">Search \"杭州\"</string>
+
+    <string name="intent_action_select_image">Select Image</string>
+
+    <string name="backup_title">Backup and Upload</string>
+    <string name="backup">Backup</string>
+    <string name="backup_main">Backup Photos</string>
+    <string name="backup_hint">Click to backup</string>
+    <string name="backup_no_more">No new photos</string>
+    <string name="backup_to_upload">%1d photos to upload</string>
+    <string name="backup_in_progress">Backup in progress</string>
+    <string name="backup_stop">Stop</string>
+    <string name="backup_manual">Select Photo and Upload</string>
+
+    <string name="cat_faces">Faces</string>
+    <string name="cat_places">Places</string>
+    <string name="cat_things">Things</string>
+    <string name="cat_collages">Collages</string>
+    <string name="cat_memories">Memories</string>
+    <string name="cat_tags">Tags</string>
+
+    <string name="settings_switch_account">Account</string>
+    <string name="settings_account_default">Default Account</string>
+    <string name="settings_account_coco">MS COCO</string>
+    <string name="settings_account_logout">Logout</string>
+
+    <string name="smart_album">Memories</string>
+
+    <!-- Strings related to login -->
+    <string name="login_title">Alibaba Cloud Photos Try out</string>
+    <string name="login_hint">This App is only for demonstration and try out. Please do not distribute this App \n\nYou can login into the \"Demonstration Account\", which contains plenty of photos covering a wide range of content (You can\'t change the data in this account) \n\nOr you can use a \"Try–out Account\" by logging–in with your phone and a SMS code, you can upload your own photos to this account (The data in the try-out account is not permanently stored and will be cleared on a regular basis)\n\n</string>
+    <string name="login_presentation">Demonstration Account</string>
+    <string name="login_user">Try out Account</string>
+    <string name="login_ak">Try out Account By AK</string>
+    <string name="login_yunqi">Yun Qi Account</string>
+
+    <string name="login_prompt_phone">Phone Number</string>
+    <string name="login_prompt_code">SMS Code</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_phone">This phone number is invalid</string>
+    <string name="error_invalid_code">This code is too short</string>
+    <string name="error_incorrect_code">This code is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="login_send_sms">Send SMS</string>
+    <string name="login_timer">%1$2d s</string>
+    <string name="login_failed">Failed to login, AK is not correct</string>
+    <string name="login_invalid">Login state is invalid, please login again</string>
+
+    <string name="send_sms_success">Send SMS Successfully!</string>
+    <string name="send_sms_failed">Send SMS Failed!</string>
+
+    <string name="error_network">Network error</string>
+
+
+    <string name="about">Cloud Photos</string>
+    <string name="hint">You can upload photos from you phone camera in the left drawer (by swiping from the left edge of the screen)</string>
+
+</resources>

@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        release {
+            keyAlias 'cloudphoto'
+            keyPassword '123456'
+            storeFile file('/Users/mengzheng/project/aliyun-photostore-android-sdk/cloudphoto.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.alibaba.sdk.android.photostore_samples"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 2
+        versionName "1.0.9"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        jackOptions {
+            enabled true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+//            buildConfigField "String", "build", getBuild()
+        }
+    }
+}
+
+static def getBuild() {
+    return "daily build " + getDate()
+}
+
+static def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyyMMdd')
+    return formattedDate
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile project(path: ':sdk')
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:support-core-utils:25.2.0'
+    compile 'com.android.support:percent:25.2.0'
+    compile 'com.squareup:otto:1.3.8'
+    compile 'com.github.arimorty:floatingsearchview:2.1.1'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:support-v4:25.2.0'
+    compile 'com.aliyun:aliyun-java-sdk-sts-internal:2.2.0'
+    compile 'com.aliyun:aliyun-java-sdk-ram-internal:2.0.8'
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile 'com.github.chrisbanes:PhotoView:2.0.0'
+    compile 'com.j256.ormlite:ormlite-android:5.0'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+}
