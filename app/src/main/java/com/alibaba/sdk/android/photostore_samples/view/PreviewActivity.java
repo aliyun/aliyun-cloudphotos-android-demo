@@ -153,7 +153,7 @@ public class PreviewActivity extends AppCompatActivity {
     private void showInfo(Long takenAt, String title, Long id, Long shareExpireTime, List<Tag> tags, List<GetPhotoFacesResponse.FaceInfo> faces) {
         StringBuilder sb = new StringBuilder();
         String takenAtStr = DateUtil.formatDate(takenAt);
-        String expireTime = DateUtil.formatDate(shareExpireTime/1000);
+        String expireTime = DateUtil.formatDate(shareExpireTime);
         String face = "";
         String tag = "";
         if (faces != null) {
