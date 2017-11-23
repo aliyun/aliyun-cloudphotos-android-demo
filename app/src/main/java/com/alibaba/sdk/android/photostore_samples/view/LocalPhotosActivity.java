@@ -212,9 +212,13 @@ public class LocalPhotosActivity extends AppCompatActivity {
         @Override
         public int compare(File file, File file2) {
             if (file.isFile() == file2.isFile()) {
-                return file.lastModified() < file2.lastModified() ? 1 : -1;
+                if (file.lastModified() < file2.lastModified())
+                    return 1;
+                else if (file.lastModified() > file2.lastModified())
+                    return -1;
+                return 0;
             }
-            return file.isDirectory() ? -1 : 1;
+            return 0;
         }
     }
 
