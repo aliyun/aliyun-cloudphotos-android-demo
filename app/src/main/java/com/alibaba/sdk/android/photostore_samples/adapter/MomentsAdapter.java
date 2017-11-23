@@ -103,6 +103,12 @@ public class MomentsAdapter extends HeaderFooterAdapter {
                 Log.d(TAG, "setMoments: " + String.valueOf(_moments.size()));
                 sMoments.clear();
                 sMoments.addAll(_moments);
+                sPhotoMap.clear();
+                types.clear();
+                moments.clear();
+                photos.clear();
+                urls.clear();
+                selects.clear();
             }
         });
     }
@@ -139,7 +145,7 @@ public class MomentsAdapter extends HeaderFooterAdapter {
                     List<Long> ps = sPhotoMap.get(mid);
                     if (ps != null && ps.size() > 0) {
                         if (ps.size() != m.photosCount) {
-                            Log.w(TAG, "shit, moment photosCount is not equal to db photosCount: "
+                            Log.w(TAG, "moment photosCount is not equal to db photosCount: "
                                     + String.valueOf(m.id) + "/" + String.valueOf(m.photosCount) + "/" + String.valueOf(ps.size()));
                         }
                         for (Long p : ps) {

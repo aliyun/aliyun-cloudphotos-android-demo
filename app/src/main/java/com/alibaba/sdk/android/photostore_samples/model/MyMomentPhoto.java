@@ -144,7 +144,7 @@ public class MyMomentPhoto {
             public Object call() throws Exception {
                 try {
                     DeleteBuilder<MyMomentPhoto, Long> builder = dao.deleteBuilder();
-                    builder.where().in("photo_id", photoIds);
+                    builder.where().in("photoId", photoIds);
                     builder.delete();
                 } catch (Exception e) {
                     Log.w(TAG, e.getMessage());

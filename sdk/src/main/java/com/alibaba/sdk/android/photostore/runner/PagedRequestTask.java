@@ -28,9 +28,6 @@ public class PagedRequestTask extends BaseRequestTask<PagedRequest> implements R
         while (true) {
             try {
                 HttpResponse response = performRequest(client, request.build());
-                if (PhotoStoreClient.getInstance().isLogin()) {
-                    break;
-                }
                 if (response != null) {
                     if (response.getStatus() == 200) {
                         String body = new String(response.getContent());

@@ -257,16 +257,16 @@ public class MomentsFragment extends BaseFragment {
                         for (final MyMoment m : data) {
                             MyMomentPhoto.getByMoment(m.id, new DatabaseCallback<Long>() {
                                 @Override
-                                public void onCompleted(int code, final List<Long> data) {
+                                public void onCompleted(int code, final List<Long> photodata) {
                                     handler.post(new Runnable() {
                                         @Override
                                         public void run() {
-                                            adapter.setMomentPhotos(m.id, data);
+                                            adapter.setMomentPhotos(m.id, photodata);
                                             buildAndNotify(LOAD_DEFER_MEDIUM);
                                         }
                                     });
 
-                                    if (m.photosCount > data.size()) {
+                                    if (m.photosCount > photodata.size()) {
                                         PhotosController.getInstance().updateMomentPhotos(m.id);
                                     }
                                 }
@@ -313,7 +313,11 @@ public class MomentsFragment extends BaseFragment {
         Collections.sort(moments, new Comparator<MyMoment>() {
             @Override
             public int compare(MyMoment o1, MyMoment o2) {
-                return o1.takenAt < o2.takenAt ? 1 : -1;
+                if (o1.takenAt < o2.takenAt)
+                    return 1;
+                else if (o1.takenAt > o2.takenAt)
+                    return -1;
+                return 0;
             }
         });
 

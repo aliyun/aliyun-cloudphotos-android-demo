@@ -42,7 +42,7 @@ dependencies {
     compile 'com.alibaba:fastjson:1.1.56.android'
     compile 'com.aliyun:aliyun-java-sdk-core:3.2.2'
     compile 'com.aliyun:aliyun-java-sdk-cloudphoto:1.1.6-SNAPSHOT'
-    compile 'com.aliyun.dpa:oss-android-sdk:2.3.0'
+    compile 'com.aliyun.dpa:oss-android-sdk:2.4.5'
 }
 
 configurations.all {

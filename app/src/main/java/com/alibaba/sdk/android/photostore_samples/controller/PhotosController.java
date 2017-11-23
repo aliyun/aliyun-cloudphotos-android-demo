@@ -450,7 +450,7 @@ public class PhotosController {
                 MyMomentPhoto.deleteByPhotos(ids, new DatabaseCallback<MyMomentPhoto>() {
                     @Override
                     public void onCompleted(int code, List<MyMomentPhoto> data) {
-
+                        BusProvider.getInstance().post(new OnGetMomentsEvent(0, "", null));
                     }
                 });
                 MyAlbumPhoto.deleteByPhotos(ids, new DatabaseCallback<MyAlbumPhoto>() {
