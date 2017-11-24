@@ -1072,7 +1072,7 @@ public class MainActivity extends AppCompatActivity {
     public void onGetQuota(OnGetQuotaEvent event) {
          if (event.quota != null) {
 
-             double used = event.quota.usedQutoa/(1024.0*1024.0*1024.0);
+             double used = event.quota.usedQuota/(1024.0*1024.0*1024.0);
              double total = event.quota.totalQuota/(1024.0*1024.0*1024.0);
              String parten = "#.##";
              DecimalFormat decimal = new DecimalFormat(parten);

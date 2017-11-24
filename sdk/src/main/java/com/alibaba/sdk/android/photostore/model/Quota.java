@@ -6,8 +6,8 @@ package com.alibaba.sdk.android.photostore.model;
 import com.alibaba.fastjson.annotation.JSONField;
 
 public class Quota {
-    @JSONField(name = "UsedQutoa")
-    public long usedQutoa;
+    @JSONField(name = "UsedQuota")
+    public long usedQuota;
 
     @JSONField(name = "TotalQuota")
     public long totalQuota;
