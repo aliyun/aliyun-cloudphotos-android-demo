@@ -207,7 +207,7 @@ public class PhotoStoreClient implements PhotoStore {
     }
 
     public RequestTask createPhoto(String fileId, String sid, String uploadType, String title, final Callback<CreatePhotoResponse> callback) {
-        Long shareExpireTime = System.currentTimeMillis() + 30*24*60*60*1000L;
+        Long shareExpireTime = 0L;
         final CreatePhotoRequest request = new CreatePhotoRequest(fileId, sid, uploadType, title, "remark", shareExpireTime);
         Log.d(TAG, "create photo: " + title);
         request.setStsToken(stsToken);
