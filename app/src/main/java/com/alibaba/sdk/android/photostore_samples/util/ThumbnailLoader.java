@@ -160,6 +160,18 @@ public class ThumbnailLoader {
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, ostream);
                     ostream.close();
 
+                    // 显示
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            RequestCreator creator = Picasso.with(appContext.getApplicationContext()).load(file);
+                            if (transformation != null) {
+                                creator.transform(transformation);
+                            }
+                            creator.into(iv);
+                        }
+                    });
+
                     Log.d(TAG, "onBitmapLoaded");
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -178,13 +190,8 @@ public class ThumbnailLoader {
         };
 
         //Picasso下载
+        iv.setTag(target);
         Picasso.with(appContext.getApplicationContext()).load(uri).into(target);
-
-        RequestCreator creator = Picasso.with(appContext.getApplicationContext()).load(uri);
-        if (transformation != null) {
-            creator.transform(transformation);
-        }
-        creator.into(iv);
     }
 
 }
