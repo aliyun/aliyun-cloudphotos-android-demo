@@ -137,40 +137,6 @@
                 android:layout_marginBottom="8dp"
                 android:background="@color/light_gray"/>
 
-            <!--<RelativeLayout-->
-                <!--android:id="@+id/rl_account_default"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:background="?attr/selectableItemBackground"-->
-                <!--android:layout_height="48dp">-->
-
-                <!--<TextView-->
-                    <!--style="@style/Base.TextAppearance.AppCompat.Button"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_centerVertical="true"-->
-                    <!--android:layout_marginLeft="16dp"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:text="@string/settings_account_default" />-->
-
-            <!--</RelativeLayout>-->
-
-            <!--<RelativeLayout-->
-                <!--android:id="@+id/rl_account_coco"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:background="?attr/selectableItemBackground"-->
-                <!--android:layout_height="48dp">-->
-
-                <!--<TextView-->
-                    <!--style="@style/Base.TextAppearance.AppCompat.Button"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_centerVertical="true"-->
-                    <!--android:layout_marginLeft="16dp"-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:text="@string/settings_account_coco" />-->
-
-            <!--</RelativeLayout>-->
-
             <RelativeLayout
                 android:id="@+id/rl_inactive"
                 android:layout_width="match_parent"
@@ -186,6 +152,24 @@
                 android:textStyle="bold"
                 android:text="@string/title_activity_inactive_photos" />
             </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_setting"
+                android:layout_width="match_parent"
+                android:background="?attr/selectableItemBackground"
+                android:layout_height="48dp">
+
+                <TextView
+                    style="@style/Base.TextAppearance.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:textStyle="bold"
+                    android:text="@string/setting" />
+
+            </RelativeLayout>
+
 
             <RelativeLayout
                 android:id="@+id/rl_account_logout"

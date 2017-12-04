@@ -15,6 +15,7 @@ import com.alibaba.sdk.android.photostore.api.GetPhotosByMd5sResponse;
 import com.alibaba.sdk.android.photostore.api.TransferDelegate;
 import com.alibaba.sdk.android.photostore.runner.Callback;
 import com.alibaba.sdk.android.photostore_samples.BusProvider;
+import com.alibaba.sdk.android.photostore_samples.MyApplication;
 import com.alibaba.sdk.android.photostore_samples.event.OnUploadStateChangedEvent;
 import com.alibaba.sdk.android.photostore_samples.model.DatabaseCallback;
 import com.alibaba.sdk.android.photostore_samples.model.UploadedPhoto;
@@ -74,7 +75,7 @@ public class UploadController {
         });
     }
 
-    public void upload(final List<File> files, final boolean bBackup) {
+    public void upload(final List<File> files, final boolean bBackup, final int shareExpireDays) {
         if (files.size() > 0) {
             uploading = true;
         }
@@ -109,7 +110,8 @@ public class UploadController {
                                 }
                             }
                             if (bUpload) {
-                                client.upload(appContext, f.getAbsolutePath(), f.length(), ext, false, md5, new TransferDelegate() {
+                                Long shareExpireTime = System.currentTimeMillis() + shareExpireDays*24*60*60*1000L;
+                                client.upload(appContext, f.getAbsolutePath(), f.length(), ext, false, md5, shareExpireTime, new TransferDelegate() {
                                     @Override
                                     public void onStart() {
                                     }
@@ -191,7 +193,7 @@ public class UploadController {
             @Override
             public void onCompleted(List<File> newFiles) {
                 Log.d(TAG, "new photos: " + String.valueOf(newFiles.size()));
-                upload(newFiles, true);
+                upload(newFiles, true, MyApplication.shareExpireDays);
             }
         });
     }

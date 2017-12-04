@@ -30,6 +30,7 @@
     <string name="title_activity_move_faces">人脸</string>
     <string name="title_activity_inactive_photos">回收站</string>
     <string name="title_activity_login">登录</string>
+    <string name="title_activity_setting">设置</string>
 
     <string name="login">登录</string>
 
@@ -58,10 +59,13 @@
     <string name="cat_memories">回忆</string>
     <string name="cat_tags">标签</string>
 
+    <string name="setting">设置</string>
     <string name="settings_switch_account">账号</string>
     <string name="settings_account_default">默认账号</string>
     <string name="settings_account_coco">MS COCO</string>
     <string name="settings_account_logout">登出</string>
+    <string name="settings_share_expire_time">分享时长：</string>
+    <string name="settings_days">天</string>
 
     <string name="smart_album">回忆</string>
 

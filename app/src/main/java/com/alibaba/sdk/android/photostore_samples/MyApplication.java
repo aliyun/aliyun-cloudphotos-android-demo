@@ -42,6 +42,7 @@ public class MyApplication extends Application {
     public static int autoCleanDays;
     public static boolean autoCleanEnabled;
     public static boolean tokenExpired;
+    public static int shareExpireDays = 0;
 
     @Override
     public void onCreate() {

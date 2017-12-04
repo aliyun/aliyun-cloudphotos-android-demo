@@ -53,6 +53,9 @@
         <activity
             android:name=".view.InactivePhotosActivity"
             android:label="@string/title_activity_inactive_photos" />
+        <activity
+            android:name=".view.SettingActivity"
+            android:label="@string/title_activity_setting" />
     </application>
 
 </manifest>

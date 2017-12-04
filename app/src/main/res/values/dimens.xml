@@ -6,4 +6,6 @@
     <dimen name="search_view_inset">4dp</dimen>
     <dimen name="grid_offset">16dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="activity_setting_horizontal_margin">16dp</dimen>
+    <dimen name="activity_setting_vertical_margin">80dp</dimen>
 </resources>

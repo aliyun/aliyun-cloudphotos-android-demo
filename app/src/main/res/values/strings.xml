@@ -30,6 +30,7 @@
     <string name="title_activity_move_albums">Cloud Albums</string>
     <string name="title_activity_move_faces">Faces</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_setting">SettingActivity</string>
 
     <string name="login">Login</string>
 
@@ -58,10 +59,13 @@
     <string name="cat_memories">Memories</string>
     <string name="cat_tags">Tags</string>
 
+    <string name="setting">Setting</string>
     <string name="settings_switch_account">Account</string>
     <string name="settings_account_default">Default Account</string>
     <string name="settings_account_coco">MS COCO</string>
     <string name="settings_account_logout">Logout</string>
+    <string name="settings_share_expire_time">Share Expire Time</string>
+    <string name="settings_days">Day</string>
 
     <string name="smart_album">Memories</string>
 

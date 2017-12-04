@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.alibaba.sdk.android.photostore_samples.MyApplication;
 import com.alibaba.sdk.android.photostore_samples.R;
 import com.alibaba.sdk.android.photostore_samples.adapter.LocalPhotosAdapter;
 import com.alibaba.sdk.android.photostore_samples.controller.UploadController;
@@ -132,7 +133,7 @@ public class LocalPhotosActivity extends AppCompatActivity {
             case R.id.menu_local_photo_upload:
                 List<File> selected = adapter.getSelected();
                 if (selected != null) {
-                    UploadController.getInstance().upload(selected, false);
+                    UploadController.getInstance().upload(selected, false, MyApplication.shareExpireDays);
                 }
                 setResult(RESULT_OK, null);
                 finish();

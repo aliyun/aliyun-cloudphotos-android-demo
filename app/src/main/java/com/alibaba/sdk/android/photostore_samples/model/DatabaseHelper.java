@@ -21,7 +21,7 @@ import com.j256.ormlite.table.TableUtils;
  * the DAOs used by the other classes.
  */
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
-    private static final int DATABASE_VERSION = 49;
+    private static final int DATABASE_VERSION = 50;
 
     private static DatabaseHelper sInstance;
 
@@ -79,6 +79,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.createTable(connectionSource, MyTag.class);
             TableUtils.createTable(connectionSource, MyTagPhoto.class);
             TableUtils.createTable(connectionSource, MyCursor.class);
+            TableUtils.createTable(connectionSource, MySetting.class);
         } catch (Exception e) {
             Log.e(DatabaseHelper.class.getName(), "Can't create database", e);
             e.printStackTrace();
@@ -98,6 +99,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             TableUtils.dropTable(connectionSource, MyTag.class, true);
             TableUtils.dropTable(connectionSource, MyTagPhoto.class, true);
             TableUtils.dropTable(connectionSource, MyCursor.class, true);
+            TableUtils.dropTable(connectionSource, MySetting.class, true);
             onCreate(db, connectionSource);
         } catch (Exception e) {
             Log.e(DatabaseHelper.class.getName(), "Can't drop databases", e);

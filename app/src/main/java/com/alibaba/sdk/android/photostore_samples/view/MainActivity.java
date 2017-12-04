@@ -65,9 +65,11 @@ import com.alibaba.sdk.android.photostore_samples.event.OnGoToFragmentEvent;
 import com.alibaba.sdk.android.photostore_samples.event.OnLogoutEvent;
 import com.alibaba.sdk.android.photostore_samples.event.OnStartActionModeEvent;
 import com.alibaba.sdk.android.photostore_samples.event.OnUploadStateChangedEvent;
+import com.alibaba.sdk.android.photostore_samples.model.DatabaseCallback;
 import com.alibaba.sdk.android.photostore_samples.model.MyAlbum;
 import com.alibaba.sdk.android.photostore_samples.model.MyPhoto;
 import com.alibaba.sdk.android.photostore_samples.model.MyFace;
+import com.alibaba.sdk.android.photostore_samples.model.MySetting;
 import com.alibaba.sdk.android.photostore_samples.util.PreferenceManager;
 import com.arlib.floatingsearchview.FloatingSearchView;
 import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
@@ -259,6 +261,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        MySetting.getValue("ShareExpireDays", new DatabaseCallback<MySetting>() {
+            @Override
+            public void onCompleted(int code, List<MySetting> data) {
+                if (data != null && data.size() > 0) {
+                    String days = data.get(0).value;
+                    MyApplication.shareExpireDays = Integer.valueOf(days);
+                }
+            }
+        });
+
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -406,6 +419,11 @@ public class MainActivity extends AppCompatActivity {
         InactivePhotosActivity.launch(this);
     }
 
+    @OnClick(R.id.rl_setting)
+    public void onClickSetting() {
+        SettingActivity.launch(this);
+    }
+
     boolean loggingOut = false;
     @OnClick(R.id.rl_account_logout)
     public void onClickLogout() {
@@ -504,7 +522,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.w(TAG, e.getMessage());
             }
 
-            UploadController.getInstance().upload(images, false);
+            UploadController.getInstance().upload(images, false, MyApplication.shareExpireDays);
         } else if (requestCode == INTENT_TAKE_IMAGE) {
             String[] filePathColumn = {MediaStore.Images.Media.DATA};
             Cursor cursor = getContentResolver().query(photoUri, filePathColumn, null, null, null);
@@ -516,7 +534,7 @@ public class MainActivity extends AppCompatActivity {
                 cursor.close();
                 Log.i(TAG, "imagePath = " + picPath);
 
-                UploadController.getInstance().upload(images, false);
+                UploadController.getInstance().upload(images, false, MyApplication.shareExpireDays);
             }
 
         } else if (requestCode == INTENT_LOGIN) {

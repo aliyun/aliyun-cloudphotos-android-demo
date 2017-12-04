@@ -206,8 +206,7 @@ public class PhotoStoreClient implements PhotoStore {
         return task;
     }
 
-    public RequestTask createPhoto(String fileId, String sid, String uploadType, String title, final Callback<CreatePhotoResponse> callback) {
-        Long shareExpireTime = 0L;
+    public RequestTask createPhoto(String fileId, String sid, String uploadType, String title, Long shareExpireTime, final Callback<CreatePhotoResponse> callback) {
         final CreatePhotoRequest request = new CreatePhotoRequest(fileId, sid, uploadType, title, "remark", shareExpireTime);
         Log.d(TAG, "create photo: " + title);
         request.setStsToken(stsToken);
@@ -590,7 +589,7 @@ public class PhotoStoreClient implements PhotoStore {
         return task;
     }
 
-    public void upload(final Context appContext, final String filePath, long fileSize, String ext, boolean force, String md5, final TransferDelegate callback) {
+    public void upload(final Context appContext, final String filePath, long fileSize, String ext, boolean force, String md5, final Long shareExpireTime, final TransferDelegate callback) {
         final PhotoStoreClient client = PhotoStoreClient.getInstance();
         client.openTransaction(fileSize, ext, force, md5, new Callback<OpenTransactionResponse>() {
             @Override
@@ -629,7 +628,7 @@ public class PhotoStoreClient implements PhotoStore {
                         String sid = response.data.upload.sid;
                         File file = new File(filePath);
                         String title = file.getName();
-                        client.createPhoto(fileId, sid, "auto", title, new Callback<CreatePhotoResponse>() {
+                        client.createPhoto(fileId, sid, "auto", title, shareExpireTime, new Callback<CreatePhotoResponse>() {
                             @Override
                             public void onSuccess(CreatePhotoResponse response) {
                                 callback.onComplete();
@@ -669,7 +668,7 @@ public class PhotoStoreClient implements PhotoStore {
     }
 
     // 断点续传，对于移动端来说，如果不是比较大的文件，不建议使用这种方式上传，因为断点续传是通过分片上传实现的，上传单个文件需要进行多次网络请求，效率不高。
-    public void resumableUpload(final Context appContext, final String filePath, long fileSize, String ext, boolean force, String md5, final TransferDelegate callback) {
+    public void resumableUpload(final Context appContext, final String filePath, long fileSize, String ext, boolean force, String md5, final Long shareExpireTime, final TransferDelegate callback) {
         final PhotoStoreClient client = PhotoStoreClient.getInstance();
         client.openTransaction(fileSize, ext, force, md5, new Callback<OpenTransactionResponse>() {
             @Override
@@ -714,7 +713,7 @@ public class PhotoStoreClient implements PhotoStore {
                         String sid = response.data.upload.sid;
                         File file = new File(filePath);
                         String title = file.getName();
-                        client.createPhoto(fileId, sid, "auto", title, new Callback<CreatePhotoResponse>() {
+                        client.createPhoto(fileId, sid, "auto", title, shareExpireTime, new Callback<CreatePhotoResponse>() {
                             @Override
                             public void onSuccess(CreatePhotoResponse response) {
                                 callback.onComplete();
