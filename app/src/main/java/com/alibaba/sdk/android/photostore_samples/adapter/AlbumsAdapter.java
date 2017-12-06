@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.alibaba.sdk.android.photostore_samples.BusProvider;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.constants.ContentType;
 import com.alibaba.sdk.android.photostore_samples.constants.FragmentType;
 import com.alibaba.sdk.android.photostore_samples.event.OnCreateAlbumEvent;
@@ -155,8 +156,6 @@ public class AlbumsAdapter extends HeaderFooterAdapter {
                 return;
             }
 
-            boolean isVideo = false;
-
             if (m.id == -1) {
                 h.ivMask.setVisibility(View.INVISIBLE);
                 h.ivPhoto.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
@@ -172,7 +171,7 @@ public class AlbumsAdapter extends HeaderFooterAdapter {
                 h.ivName.setTextColor(Color.WHITE);
                 h.ivName.setText(m.name);
                 h.ivPhoto.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, m.coverPhotoId, 512, 512, isVideo);
+                ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, m.coverPhotoId, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
 
                 if (isActionMode) {
                     h.checkBox.setVisibility(View.VISIBLE);

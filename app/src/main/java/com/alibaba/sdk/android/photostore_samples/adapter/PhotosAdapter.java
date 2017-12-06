@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.alibaba.sdk.android.photostore_samples.BusProvider;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.controller.PhotosController;
 import com.alibaba.sdk.android.photostore_samples.event.OnFinishActionModeEvent;
 import com.alibaba.sdk.android.photostore_samples.event.OnStartActionModeEvent;
@@ -154,7 +155,7 @@ public class PhotosAdapter extends HeaderFooterAdapter {
             final PhotoViewHolder h = (PhotoViewHolder) holder;
             h.position = position;
 
-            ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, p.id, 512, 512, p.isVideo);
+            ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, p.id, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
 
             if (isActionMode) {
                 h.checkBox.setVisibility(View.VISIBLE);

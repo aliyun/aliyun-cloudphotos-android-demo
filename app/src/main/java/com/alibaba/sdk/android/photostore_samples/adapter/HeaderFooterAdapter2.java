@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 
 import com.alibaba.sdk.android.photostore_samples.BusProvider;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.constants.FragmentType;
 import com.alibaba.sdk.android.photostore_samples.event.OnGoToFragmentEvent;
 import com.alibaba.sdk.android.photostore_samples.model.MyFace;
@@ -239,7 +240,7 @@ public abstract class HeaderFooterAdapter2 extends RecyclerView.Adapter<Recycler
             MyFace o;
             for (int i = 0; i < list.size() && i < 4; i++) {
                 o = list.get(i);
-                ThumbnailLoader.getInstance().loadCropByPhotoId(ivFaces.get(i), o.coverPhotoId, 1024, 1024, false,
+                ThumbnailLoader.getInstance().loadCropByPhotoId(ivFaces.get(i), o.coverPhotoId, Constants.BIG_PHOTO_WIDTH, Constants.BIG_PHOTO_HEIGHT,
                         o.axisLeft, o.axisTop, o.axisRight, o.axisBottom, o.coverWidth, o.coverHeight);
             }
         }
@@ -249,7 +250,7 @@ public abstract class HeaderFooterAdapter2 extends RecyclerView.Adapter<Recycler
                 MyTag o;
                 for (int i = 0; i < list.size() && i < 4; i++) {
                     o = list.get(i);
-                    ThumbnailLoader.getInstance().loadByPhotoId(ivTags.get(i), o.coverPhotoId, 512, 512, false);
+                    ThumbnailLoader.getInstance().loadByPhotoId(ivTags.get(i), o.coverPhotoId, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
                 }
             }
         }

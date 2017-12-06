@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import com.alibaba.sdk.android.photostore_samples.BusProvider;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.constants.FragmentType;
 import com.alibaba.sdk.android.photostore_samples.controller.PhotosController;
 import com.alibaba.sdk.android.photostore_samples.event.OnFinishActionModeEvent;
@@ -163,8 +164,7 @@ public class AlbumPhotosAdapter extends HeaderFooterAdapter {
             }
             else {
                 h.ivPhoto.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                //TODO:mengzheng p.isVideo
-                ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, pid, 512, 512, false);
+                ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, pid, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
 
                 if (isActionMode) {
                     h.checkBox.setVisibility(View.VISIBLE);

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.alibaba.sdk.android.photostore_samples.BusProvider;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.constants.ContentType;
 import com.alibaba.sdk.android.photostore_samples.constants.FragmentType;
 import com.alibaba.sdk.android.photostore_samples.event.OnGoToFragmentEvent;
@@ -61,15 +62,11 @@ public class TagsAdapter extends HeaderFooterAdapter {
     protected void onBindContentViewHolder(RecyclerView.ViewHolder holder, int position) {
         final MyTag o = datas.get(position);
         final PhotoViewHolder h = (PhotoViewHolder) holder;
-        boolean isVideo = false;
         h.position = position;
         h.ivName.setText(o.name);
         h.ivName.setTextColor(Color.WHITE);
 
-        ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, o.coverPhotoId, 512, 512, isVideo);
-
-        if (isActionMode) {
-        }
+        ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, o.coverPhotoId, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
     }
 
     @Override

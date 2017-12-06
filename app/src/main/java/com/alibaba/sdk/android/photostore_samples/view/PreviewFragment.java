@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.controller.PhotosController;
 import com.alibaba.sdk.android.photostore_samples.util.ThumbnailLoader;
 import com.github.chrisbanes.photoview.PhotoView;
@@ -55,8 +56,7 @@ public class PreviewFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         Long pid = PhotosController.getInstance().getPhotoList().get(position);
-        // TODO: mengzheng p.isVideo
-        ThumbnailLoader.getInstance().loadByPhotoId(ivPhoto, pid, 1024, 1024, false);
+        ThumbnailLoader.getInstance().loadByPhotoId(ivPhoto, pid, Constants.BIG_PHOTO_WIDTH, Constants.BIG_PHOTO_HEIGHT);
 
     }
 

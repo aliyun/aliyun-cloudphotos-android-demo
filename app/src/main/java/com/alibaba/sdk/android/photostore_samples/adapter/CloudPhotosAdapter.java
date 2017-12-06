@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.model.MyPhoto;
 import com.alibaba.sdk.android.photostore_samples.util.ThumbnailLoader;
 import java.util.ArrayList;
@@ -65,7 +66,7 @@ public class CloudPhotosAdapter extends HeaderFooterAdapter {
 
             h.position = position;
 
-            ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, p.id, 512, 512, p.isVideo);
+            ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, p.id, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
 
             if (isActionMode) {
                 h.checkBox.setVisibility(View.VISIBLE);

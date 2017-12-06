@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.alibaba.sdk.android.photostore_samples.BusProvider;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.constants.ContentType;
 import com.alibaba.sdk.android.photostore_samples.constants.FragmentType;
 import com.alibaba.sdk.android.photostore_samples.event.OnFinishActionModeEvent;
@@ -78,9 +79,7 @@ public class FacesAdapter extends HeaderFooterAdapter {
         h.ivName.setTextColor(Color.WHITE);
         h.ivName.setText(o.name);
 
-        boolean isVideo = false;
-
-        ThumbnailLoader.getInstance().loadCropByPhotoId(h.ivPhoto, o.coverPhotoId, 1024, 1024, isVideo,
+        ThumbnailLoader.getInstance().loadCropByPhotoId(h.ivPhoto, o.coverPhotoId, Constants.BIG_PHOTO_WIDTH, Constants.BIG_PHOTO_HEIGHT,
                 o.axisLeft, o.axisTop, o.axisRight, o.axisBottom, o.coverWidth, o.coverHeight);
 
         if (isActionMode) {

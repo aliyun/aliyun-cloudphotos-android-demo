@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.alibaba.sdk.android.photostore_samples.MyApplication;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.model.MyPhoto;
 import com.alibaba.sdk.android.photostore_samples.util.ThumbnailLoader;
 import java.util.ArrayList;
@@ -94,7 +95,7 @@ public class InactivePhotosAdapter extends HeaderFooterAdapter {
                 h.ivName.setText("");
             }
 
-            ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, p.id, 512, 512, p.isVideo);
+            ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, p.id, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
 
             if (isActionMode) {
                 h.checkBox.setVisibility(View.VISIBLE);

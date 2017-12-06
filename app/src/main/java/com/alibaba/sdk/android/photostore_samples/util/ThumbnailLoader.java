@@ -55,7 +55,7 @@ public class ThumbnailLoader {
         handler = new Handler(Looper.getMainLooper());
     }
 
-    public void loadCropByPhotoId(final ImageView iv, final Long photoId, final int photoWidth, final int photoHeight, final boolean isVideo,
+    public void loadCropByPhotoId(final ImageView iv, final Long photoId, final int photoWidth, final int photoHeight,
                          int left, int top, int right, int bottom, int width, int height) {
         if (width != 0 && height != 0) {
             float rl = (float) left / width;
@@ -67,21 +67,20 @@ public class ThumbnailLoader {
 
             CropTransformation transformation = new CropTransformation(rl - margin, rt - margin, rw + 2 * margin, rh + 2 * margin);
 
-            loadByPhotoId(iv, photoId, photoWidth, photoHeight, isVideo, transformation);
+            loadByPhotoId(iv, photoId, photoWidth, photoHeight, transformation);
         } else {
-            loadByPhotoId(iv, photoId, photoWidth, photoHeight, isVideo, null);
+            loadByPhotoId(iv, photoId, photoWidth, photoHeight, null);
         }
     }
     public void loadByPhotoId(final ImageView iv,
                               final Long photoId,
                               final int width,
-                              final int height,
-                              final boolean isVideo) {
-        loadByPhotoId(iv, photoId, width, height, isVideo, null);
+                              final int height) {
+        loadByPhotoId(iv, photoId, width, height, null);
     }
 
     private void loadByPhotoId(final ImageView iv,
-                      final Long photoId, final int width, final int height, final boolean isVideo,
+                      final Long photoId, final int width, final int height,
                       final Transformation transformation) {
 
         iv.setImageBitmap(null);
@@ -107,42 +106,22 @@ public class ThumbnailLoader {
             if (url != null) {
                 downloadImage(iv, url, photoId, width, height, transformation);
             } else {
-                if (isVideo) {
-                    PhotoStoreClient.getInstance().getVideoCover(photoId, width, height, new Callback<GetVideoCoverResponse>() {
-                        @Override
-                        public void onSuccess(GetVideoCoverResponse response) {
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    urlMap.put(key, response.url);
-                                    downloadImage(iv, response.url, photoId, width, height, transformation);
-                                }
-                            });
-                        }
+                PhotoStoreClient.getInstance().getThumbnail(photoId, width, height, new Callback<GetThumbnailResponse>() {
+                    @Override
+                    public void onSuccess(GetThumbnailResponse response) {
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                urlMap.put(key, response.url);
+                                downloadImage(iv, response.url, photoId, width, height, transformation);
+                            }
+                        });
+                    }
 
-                        @Override
-                        public void onFailure(int code, BaseResponse response) {
-
-                        }
-                    });
-                } else {
-                    PhotoStoreClient.getInstance().getThumbnail(photoId, width, height, new Callback<GetThumbnailResponse>() {
-                        @Override
-                        public void onSuccess(GetThumbnailResponse response) {
-                            handler.post(new Runnable() {
-                                @Override
-                                public void run() {
-                                    urlMap.put(key, response.url);
-                                    downloadImage(iv, response.url, photoId, width, height, transformation);
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void onFailure(int code, BaseResponse response) {
-                        }
-                    });
-                }
+                    @Override
+                    public void onFailure(int code, BaseResponse response) {
+                    }
+                });
             }
         }
     }

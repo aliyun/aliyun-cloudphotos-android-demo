@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.alibaba.sdk.android.photostore_samples.BusProvider;
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.controller.PhotosController;
 import com.alibaba.sdk.android.photostore_samples.event.OnFinishActionModeEvent;
 import com.alibaba.sdk.android.photostore_samples.event.OnStartActionModeEvent;
@@ -229,7 +230,7 @@ public class MomentsAdapter extends HeaderFooterAdapter {
             h.position = position;
 
             // TODO:mengzheng isVideo
-            ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, id, 512, 512, false);
+            ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, id, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
 
             if (isActionMode) {
                 h.checkBox.setVisibility(View.VISIBLE);

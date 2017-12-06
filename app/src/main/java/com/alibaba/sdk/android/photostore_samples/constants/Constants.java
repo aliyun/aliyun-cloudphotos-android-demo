@@ -29,6 +29,11 @@ public class Constants {
     public static final int VOICE_SEARCH_CODE = 4;
     public static final int INTENT_PERMISSIONS_REQUEST_STORAGE = 100;
 
+    public static final int PHOTO_WIDTH = 512;
+    public static final int PHOTO_HEIGHT = 512;
+    public static final int BIG_PHOTO_WIDTH = 1024;
+    public static final int BIG_PHOTO_HEIGHT = 1024;
+
     public static String demoAccount = "15088784668";
     public static String demoKp = "6085890166600993";
 

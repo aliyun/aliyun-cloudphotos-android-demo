@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.sdk.android.photostore_samples.R;
+import com.alibaba.sdk.android.photostore_samples.constants.Constants;
 import com.alibaba.sdk.android.photostore_samples.constants.FragmentType;
 import com.alibaba.sdk.android.photostore_samples.model.MyAlbum;
 import com.alibaba.sdk.android.photostore_samples.model.MyFace;
@@ -90,14 +91,14 @@ public class MoveAdapter extends HeaderFooterAdapter {
                 final MyAlbum album = albums.get(position);
                 h.ivName.setText(album.name);
 
-                ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, album.coverPhotoId, 512, 512, album.isCoverVideo);
+                ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, album.coverPhotoId, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
             }
             else if (type == FragmentType.FACES.ordinal()) {
                 boolean isVideo = false;
                 final MyFace face = faces.get(position);
                 h.ivName.setText(face.name);
 
-                ThumbnailLoader.getInstance().loadCropByPhotoId(h.ivPhoto, face.coverPhotoId, 1024, 1024, isVideo,
+                ThumbnailLoader.getInstance().loadCropByPhotoId(h.ivPhoto, face.coverPhotoId, Constants.BIG_PHOTO_WIDTH, Constants.BIG_PHOTO_HEIGHT,
                         face.axisLeft, face.axisTop, face.axisRight, face.axisBottom, face.coverWidth, face.coverHeight);
             }
 
