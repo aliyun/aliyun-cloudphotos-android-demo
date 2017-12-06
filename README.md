@@ -7,7 +7,7 @@ provide intelligent search services based on natural language understanding.
 ```
 
 # aliyun-cloudphotos-android-demo apk
-![center](http://akanbox-assets.alicdn.com/cloudphoto/imgs/cloudphotos-v1.1.0.png)
+![center](http://akanbox-assets.alicdn.com/cloudphoto/imgs/cloudphotos-v1.1.1.png)
 
 # License
 ```
