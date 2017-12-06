@@ -13,6 +13,7 @@ import com.alibaba.sdk.android.oss.callback.OSSCompletedCallback;
 import com.alibaba.sdk.android.oss.callback.OSSProgressCallback;
 import com.alibaba.sdk.android.oss.common.auth.OSSStsTokenCredentialProvider;
 import com.alibaba.sdk.android.oss.internal.OSSAsyncTask;
+import com.alibaba.sdk.android.oss.model.ObjectMetadata;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
 import com.alibaba.sdk.android.oss.model.ResumableUploadRequest;
@@ -589,7 +590,7 @@ public class PhotoStoreClient implements PhotoStore {
         return task;
     }
 
-    public void upload(final Context appContext, final String filePath, long fileSize, String ext, boolean force, String md5, final Long shareExpireTime, final TransferDelegate callback) {
+    public void upload(final Context appContext, final String filePath, final long fileSize, final String ext, final String contentType, boolean force, String md5, final Long shareExpireTime, final TransferDelegate callback) {
         final PhotoStoreClient client = PhotoStoreClient.getInstance();
         client.openTransaction(fileSize, ext, force, md5, new Callback<OpenTransactionResponse>() {
             @Override
@@ -609,7 +610,11 @@ public class PhotoStoreClient implements PhotoStore {
                 // 构造上传请求
                 String bucket = response.data.upload.bucket;
                 String objectKey = response.data.upload.objectKey;
-                PutObjectRequest put = new PutObjectRequest(bucket, objectKey, filePath);
+
+                ObjectMetadata objectMetadata = new ObjectMetadata();
+                objectMetadata.setContentLength(fileSize);
+                objectMetadata.setContentType(contentType);
+                PutObjectRequest put = new PutObjectRequest(bucket, objectKey, filePath, objectMetadata);
 
                 // 异步上传时可以设置进度回调
                 put.setProgressCallback(new OSSProgressCallback<PutObjectRequest>() {

@@ -77,4 +77,33 @@ public class FileUtil {
         }
         return stringBuilder.toString();
     }
+
+    /**
+     * Description: 判断OSS服务文件上传时文件的contentType
+     *
+     * @param fileNameExtension 文件后缀
+     * @return String
+     */
+    public static String getContentType(String fileNameExtension) {
+        if (fileNameExtension.equalsIgnoreCase("bmp")) {
+            return "image/bmp";
+        }
+        if (fileNameExtension.equalsIgnoreCase("gif")) {
+            return "image/gif";
+        }
+        if (fileNameExtension.equalsIgnoreCase("jpeg") ||
+                fileNameExtension.equalsIgnoreCase("jpg")) {
+            return "image/jpeg";
+        }
+        if (fileNameExtension.equalsIgnoreCase("png")) {
+            return "image/png";
+        }
+        if (fileNameExtension.equalsIgnoreCase("avi")) {
+            return "video/avi";
+        }
+        if (fileNameExtension.equalsIgnoreCase("mp4")) {
+            return "video/mpeg4";
+        }
+        return "image/jpeg";
+    }
 }

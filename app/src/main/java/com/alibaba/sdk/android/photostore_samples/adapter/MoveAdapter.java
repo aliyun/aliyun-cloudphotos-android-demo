@@ -94,7 +94,6 @@ public class MoveAdapter extends HeaderFooterAdapter {
                 ThumbnailLoader.getInstance().loadByPhotoId(h.ivPhoto, album.coverPhotoId, Constants.PHOTO_WIDTH, Constants.PHOTO_HEIGHT);
             }
             else if (type == FragmentType.FACES.ordinal()) {
-                boolean isVideo = false;
                 final MyFace face = faces.get(position);
                 h.ivName.setText(face.name);
 

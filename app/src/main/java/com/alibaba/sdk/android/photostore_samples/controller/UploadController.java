@@ -87,6 +87,7 @@ public class UploadController {
                     final PhotoStoreClient client = PhotoStoreClient.getInstance();
                     String md5 = FileUtil.getFileMD5(f);
                     String ext = FileUtil.getFileExt(f);
+                    String contentType = FileUtil.getContentType(ext);
                     if (md5 != null && md5.length() != 32) {
                         Log.d(TAG, f.getAbsolutePath());
                     }
@@ -110,8 +111,11 @@ public class UploadController {
                                 }
                             }
                             if (bUpload) {
-                                Long shareExpireTime = System.currentTimeMillis() + shareExpireDays*24*60*60*1000L;
-                                client.upload(appContext, f.getAbsolutePath(), f.length(), ext, false, md5, shareExpireTime, new TransferDelegate() {
+                                Long shareExpireTime = 0L;
+                                if (shareExpireDays > 0) {
+                                    shareExpireTime = System.currentTimeMillis() + shareExpireDays*24*60*60*1000L;
+                                }
+                                client.upload(appContext, f.getAbsolutePath(), f.length(), ext, contentType, false, md5, shareExpireTime, new TransferDelegate() {
                                     @Override
                                     public void onStart() {
                                     }

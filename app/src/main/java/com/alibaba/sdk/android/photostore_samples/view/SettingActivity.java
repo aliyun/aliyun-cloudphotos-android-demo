@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.alibaba.sdk.android.photostore_samples.MyApplication;
 import com.alibaba.sdk.android.photostore_samples.R;
 import com.alibaba.sdk.android.photostore_samples.model.DatabaseCallback;
 import com.alibaba.sdk.android.photostore_samples.model.MySetting;
@@ -80,6 +81,7 @@ public class SettingActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         final String days = tvShareExpireTime.getText().toString();
+        MyApplication.shareExpireDays = Integer.valueOf(days);
         new Thread(new Runnable() {
             @Override
             public void run() {
